@@ -1,6 +1,17 @@
+server:
+  port: 9001
+
 spring:
   application:
     name: springboot-web
-
-server:
-  port: 9001
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5433/oauth_nowhere}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:nowhere}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties.hibernate:
+      properties.hibernate.dialect: org.hibernate.dialect.PostgresSQLDialect
+    database: postgresql
